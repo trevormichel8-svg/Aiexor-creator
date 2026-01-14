@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!--
+      This webapp replicates the look of the official ChatGPT mobile interface
+      shown in the provided screenshot. All dark elements now use a teal accent
+      with a soft neon glow on buttons, borders and the prompt bar. The markup
+      is intentionally minimal – most of the layout is controlled via CSS.
+    -->
+    <div class="mobile-frame">
+      <!-- Top bar with app name and actions -->
+      <div class="top-bar">
+        <div class="top-left">
+          <div class="hamburger" aria-label="Menu button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- Updated brand label -->
+          <div class="app-label">Aiexor</div>
+        </div>
+        <div class="top-right">
+          <button class="icon-button" aria-label="New chat">
+            <!-- person-plus icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 14c2.761 0 5 2.239 5 5v2" />
+              <path d="M7 14c-2.761 0-5 2.239-5 5v2" />
+              <circle cx="10" cy="6" r="4" />
+              <line x1="18" y1="9" x2="18" y2="15" />
+              <line x1="15" y1="12" x2="21" y2="12" />
+            </svg>
+          </button>
+          <button class="icon-button" aria-label="Regenerate">
+            <!-- refresh icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10" />
+              <polyline points="1 20 1 14 7 14" />
+              <path d="M3.51 9a9 9 0 0114.13-3.36l5.36 5.36" />
+              <path d="M20.49 15a9 9 0 01-14.13 3.36L1 13" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main content area -->
+      <main class="content">
+        <!-- Replace all previous features with a simple call to action -->
+        <h1 class="first-message">Generate Your First Image</h1>
+        <div id="output" class="output"></div>
+      </main>
+
+      <!-- Prompt bar at bottom -->
+      <form class="prompt-bar" id="prompt-form" autocomplete="off">
+        <button type="button" class="plus-btn" id="clear-btn" aria-label="Clear output">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </button>
+        <input
+          type="text"
+          id="prompt-input"
+          class="prompt-input"
+          placeholder="Describe your image"
+          required
+        />
+        <button type="button" class="icon-button mic-btn" aria-label="Voice input" disabled>
+          <!-- mic icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1v8" />
+            <rect x="9" y="1" width="6" height="12" rx="3" ry="3" />
+            <path d="M5 10v2a7 7 0 0 0 14 0v-2" />
+            <line x1="12" y1="19" x2="12" y2="23" />
+            <line x1="8" y1="23" x2="16" y2="23" />
+          </svg>
+        </button>
+        <button type="submit" class="icon-button send-btn" aria-label="Generate image">
+          <!-- send/regenerate icon (using refresh arrow) -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10" />
+            <polyline points="1 20 1 14 7 14" />
+            <path d="M3.51 9a9 9 0 0114.13-3.36l5.36 5.36" />
+            <path d="M20.49 15a9 9 0 01-14.13 3.36L1 13" />
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
