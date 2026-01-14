@@ -26,24 +26,22 @@
           <!-- Updated brand label -->
           <div class="app-label">Aiexor</div>
         </div>
-        <div class="top-right">
-          <button class="icon-button" aria-label="New chat">
-            <!-- person-plus icon -->
+      <div class="top-right">
+          <!-- Sign-in button: repurpose the new chat button for Google sign-in -->
+          <button id="sign-in-btn" class="icon-button" aria-label="Sign in">
+            <!-- person icon for sign in -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 14c2.761 0 5 2.239 5 5v2" />
-              <path d="M7 14c-2.761 0-5 2.239-5 5v2" />
-              <circle cx="10" cy="6" r="4" />
-              <line x1="18" y1="9" x2="18" y2="15" />
-              <line x1="15" y1="12" x2="21" y2="12" />
+              <circle cx="12" cy="7" r="4" />
+              <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
             </svg>
           </button>
-          <button class="icon-button" aria-label="Regenerate">
-            <!-- refresh icon -->
+          <!-- Secondary top-right button: left untouched for now (can be used for settings or future features) -->
+          <button class="icon-button" aria-label="Secondary action">
+            <!-- ellipsis icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 4 23 10 17 10" />
-              <polyline points="1 20 1 14 7 14" />
-              <path d="M3.51 9a9 9 0 0114.13-3.36l5.36 5.36" />
-              <path d="M20.49 15a9 9 0 01-14.13 3.36L1 13" />
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
             </svg>
           </button>
         </div>
@@ -56,9 +54,21 @@
         <div id="output" class="output"></div>
       </main>
 
+      <!-- Sidebar for menu opened by hamburger icon -->
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+          <h2>Menu</h2>
+          <p>This is a placeholder sidebar. Add links or additional controls here.</p>
+        </div>
+      </div>
+
+      <!-- Style menu for selecting art styles -->
+      <div id="style-menu" class="style-menu"></div>
+
       <!-- Prompt bar at bottom -->
       <form class="prompt-bar" id="prompt-form" autocomplete="off">
-        <button type="button" class="plus-btn" id="clear-btn" aria-label="Clear output">
+        <!-- Style picker button (was clear button) -->
+        <button type="button" class="plus-btn" id="style-btn" aria-label="Choose style">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
             <line x1="5" y1="12" x2="19" y2="12" />
@@ -71,23 +81,22 @@
           placeholder="Describe your image"
           required
         />
-        <button type="button" class="icon-button mic-btn" aria-label="Voice input" disabled>
-          <!-- mic icon -->
+        <!-- Generate button (repurposed mic button) -->
+        <button type="button" class="icon-button generate-btn" id="generate-btn" aria-label="Generate image">
+          <!-- image icon representing generation -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 1v8" />
-            <rect x="9" y="1" width="6" height="12" rx="3" ry="3" />
-            <path d="M5 10v2a7 7 0 0 0 14 0v-2" />
-            <line x1="12" y1="19" x2="12" y2="23" />
-            <line x1="8" y1="23" x2="16" y2="23" />
+            <rect x="3" y="3" width="18" height="14" rx="2" ry="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
           </svg>
         </button>
-        <button type="submit" class="icon-button send-btn" aria-label="Generate image">
-          <!-- send/regenerate icon (using refresh arrow) -->
+        <!-- Download button (repurposed send button) -->
+        <button type="button" class="icon-button download-btn" id="download-btn" aria-label="Download image">
+          <!-- download icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="23 4 23 10 17 10" />
-            <polyline points="1 20 1 14 7 14" />
-            <path d="M3.51 9a9 9 0 0114.13-3.36l5.36 5.36" />
-            <path d="M20.49 15a9 9 0 01-14.13 3.36L1 13" />
+            <path d="M12 5v12" />
+            <polyline points="5 13 12 20 19 13" />
+            <path d="M5 19h14" />
           </svg>
         </button>
       </form>
