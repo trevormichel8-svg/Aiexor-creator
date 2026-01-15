@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const downloadBtn = document.getElementById("download-btn");
   const hamburger = document.querySelector(".hamburger");
   const signInBtn = document.getElementById("sign-in-btn");
+  const closeSidebarBtn = document.getElementById("close-sidebar");
+
+  // Track the most recently generated image URL so the download button
+  // always downloads the last image that was created. Initialized to null.
+  let lastGeneratedImageUrl = null;
 
   // Populate art styles into the style menu
   const styles = [
@@ -47,6 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Close sidebar when the close button is clicked
+  if (closeSidebarBtn) {
+    closeSidebarBtn.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+    });
+  }
+
   // Toggle style menu
   styleBtn.addEventListener("click", () => {
     styleMenu.classList.toggle("open");
@@ -63,14 +75,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sign in via Google: open Google sign-in page (placeholder implementation)
   signInBtn.addEventListener("click", () => {
-    window.open("https://accounts.google.com/signin/v2/identifier", "_blank");
+    // Open the Google sign-in flow in a small popup window. Replace the URL
+    // below with your OAuth authorization endpoint and appropriate query
+    // parameters (client_id, redirect_uri, scope, etc.) if you configure
+    // authentication for this app. For demonstration purposes, we simply
+    // open the sign-in page.
+    const url = "https://accounts.google.com/signin/v2/identifier";
+    window.open(url, "googleSignIn", "width=500,height=600,menubar=no,toolbar=no,location=no");
   });
 
   // Generate image function
   async function generateImage() {
     const prompt = input.value.trim();
     if (!prompt) return;
-    output.innerHTML = `<p class="loading">Generating...</p>`;
+    // Append a loading message at the end of the output list
+    const loadingEl = document.createElement("p");
+    loadingEl.className = "loading";
+    loadingEl.textContent = "Generating...";
+    output.appendChild(loadingEl);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -83,23 +105,43 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) {
         throw new Error(data.error || "Failed to generate image");
       }
+      // Remove the loading element
+      output.removeChild(loadingEl);
       if (Array.isArray(data.output) && data.output.length > 0) {
         const imgUrl = data.output[0];
-        output.innerHTML = `<img id="generated-image" src="${imgUrl}" alt="Generated image" />`;
+        // Track last generated image for downloading
+        lastGeneratedImageUrl = imgUrl;
+        // Create a new image element and append it to the output container
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.alt = "Generated image";
+        output.appendChild(img);
+        // Scroll to the bottom of the output to show the new image
+        output.scrollTop = output.scrollHeight;
       } else {
-        output.innerHTML = `<p class="loading">No image returned.</p>`;
+        const errorEl = document.createElement("p");
+        errorEl.className = "loading";
+        errorEl.textContent = "No image returned.";
+        output.appendChild(errorEl);
       }
     } catch (err) {
-      output.innerHTML = `<p class="loading">${err.message}</p>`;
+      // Remove the loading element if it still exists
+      if (output.contains(loadingEl)) {
+        output.removeChild(loadingEl);
+      }
+      const errorEl = document.createElement("p");
+      errorEl.className = "loading";
+      errorEl.textContent = err.message;
+      output.appendChild(errorEl);
     }
   }
 
   // Download image function
   function downloadImage() {
-    const img = document.querySelector("#generated-image");
-    if (!img) return;
+    // Use the last generated image URL so the user always downloads the latest
+    if (!lastGeneratedImageUrl) return;
     const link = document.createElement("a");
-    link.href = img.src;
+    link.href = lastGeneratedImageUrl;
     link.download = "generated-image.png";
     document.body.appendChild(link);
     link.click();

@@ -31,10 +31,17 @@ body {
 }
 
 /* Container to simulate a phone frame */
+/* Responsive mobile frame
+   The frame now scales to the full width of the viewport on small
+   devices, with a maximum width on larger screens. Height adjusts to
+   the viewport height so content can scroll within the app. */
 .mobile-frame {
-  width: 360px;
-  height: 700px;
-  border-radius: 32px;
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  border-radius: 24px;
   background-color: var(--bg-color);
   box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
   display: flex;
@@ -176,22 +183,6 @@ body {
   white-space: nowrap;
 }
 
-/* Output section */
-.output {
-  margin: 1rem 2rem;
-  text-align: center;
-}
-.output img {
-  max-width: 100%;
-  border-radius: 12px;
-  border: 1px solid var(--teal);
-  box-shadow: 0 0 12px var(--teal-glow);
-  margin-top: 0.5rem;
-}
-.output .loading {
-  color: var(--teal);
-  font-size: 0.9rem;
-}
 
 /* Prompt bar */
 .prompt-bar {
@@ -202,8 +193,8 @@ body {
   background-color: var(--surface-color);
   border-top: 1px solid var(--teal);
   box-shadow: 0 -2px 8px var(--teal-glow);
-  /* Round the corners of the prompt bar itself so it doesn't appear square */
-  border-radius: var(--radius-pill);
+  /* Remove rounded corners to avoid the appearance of a single big pill */
+  border-radius: 0;
 }
 .prompt-bar .plus-btn {
   background-color: var(--surface-color);
@@ -282,6 +273,38 @@ body {
   }
 }
 
+/* Content area grows to fill available height and allows scrolling for
+   history of generated images. */
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Adjust the output container to display images in a column with spacing
+   and allow it to scroll if there are many images. */
+.output {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  overflow-y: auto;
+}
+/* Ensure images inside the output container have consistent styling */
+.output img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--teal);
+  box-shadow: 0 0 12px var(--teal-glow);
+}
+/* Loading and error messages inside the output maintain the neon colour */
+.output .loading {
+  color: var(--teal);
+  font-size: 0.9rem;
+}
+
 /* Sidebar styles for the hamburger menu
    The sidebar is hidden off‑canvas by default and slides in when the
    `.open` class is applied. It appears on the left side of the mobile
@@ -292,10 +315,11 @@ body {
   left: 0;
   bottom: 0;
   width: 70%;
-  max-width: 250px;
-  background-color: var(--surface-color);
+  max-width: 260px;
+  /* Gradient background from near-black to a subtle teal tint */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 245, 212, 0.15) 100%);
   border-right: 1px solid var(--teal);
-  box-shadow: 0 0 10px var(--teal-glow);
+  box-shadow: 0 0 12px var(--teal-glow);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 20;
@@ -359,4 +383,22 @@ body {
 }
 .style-item:hover {
   background-color: var(--bg-color);
+}
+
+/* Close button for sidebar */
+.close-sidebar-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: var(--teal);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  text-shadow: 0 0 6px var(--teal-glow);
+}
+.close-sidebar-btn:hover {
+  color: var(--text-color);
 }
