@@ -19,6 +19,8 @@
   --spacing-sm: 0.5rem;
 }
 
+/* DEBUG: remove all box-shadows to locate stray glow lines. Uncomment when testing */
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -43,11 +45,38 @@ body {
   margin: 0;
   border-radius: 24px;
   background-color: var(--bg-color);
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
+  /* Explicitly remove any shadow, border or outline so no teal lines
+     appear around the container. */
+  box-shadow: none;
+  border: none;
+  outline: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+}
+
+/* Mask any residual teal lines along the left and bottom edges of the
+   mobile frame by overlaying small strips that match the background. These
+   pseudo-elements ensure that no unintended borders remain visible. */
+.mobile-frame::before,
+.mobile-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  background-color: var(--bg-color);
+}
+.mobile-frame::before {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px; /* width of the mask for the left edge */
+}
+.mobile-frame::after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px; /* height of the mask for the bottom edge */
 }
 
 /* Top bar layout */
@@ -136,9 +165,12 @@ body {
    styling but uses a distinct class so the markup can be updated without
    affecting other headings. */
 .first-message {
+  /* Center the introductory heading within the content area when no
+     images are present. Use auto margins to center vertically and
+     align-self to center horizontally. */
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin: auto;
+  align-self: center;
   font-size: 1.3rem;
   font-weight: 600;
 }
@@ -191,10 +223,16 @@ body {
   align-items: center;
   padding: 0.5rem 0.75rem;
   background-color: var(--surface-color);
-  border-top: 1px solid var(--teal);
+  /* Remove the teal divider line and rely on subtle shadow for separation */
+  border-top: none;
+  /* Subtle glow above the prompt bar to separate it from content */
   box-shadow: 0 -2px 8px var(--teal-glow);
   /* Remove rounded corners to avoid the appearance of a single big pill */
   border-radius: 0;
+  /* Ensure the prompt bar stays visible at the bottom of the viewport when
+     scrolling through history. Sticky positioning keeps it anchored */
+  position: sticky;
+  bottom: 0;
 }
 .prompt-bar .plus-btn {
   background-color: var(--surface-color);
@@ -280,6 +318,21 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  /* Align children horizontally centered. Vertical centering will be
+     controlled by auto margins on the first message. */
+  align-items: center;
+
+  /* Hide default scrollbars on WebKit-based browsers */
+  scrollbar-width: none; /* Firefox */
+  /* Make track and thumb the same colour as the background to avoid
+     visible scrollbars in browsers that honour scrollbar-colour */
+  scrollbar-color: var(--bg-color) var(--bg-color);
+}
+
+/* Hide scrollbars on WebKit browsers for the content area */
+.content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 /* Adjust the output container to display images in a column with spacing
@@ -291,6 +344,18 @@ body {
   gap: 0.5rem;
   padding: 0 1rem;
   overflow-y: auto;
+  width: 100%;
+
+  /* Hide scrollbars for the output container as well */
+  scrollbar-width: none; /* Firefox */
+  /* Make track and thumb the same colour as the background */
+  scrollbar-color: var(--bg-color) var(--bg-color);
+}
+
+/* Hide scrollbars on WebKit browsers for the output container */
+.output::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 /* Ensure images inside the output container have consistent styling */
 .output img {
@@ -310,16 +375,22 @@ body {
    `.open` class is applied. It appears on the left side of the mobile
    frame with a dark surface, teal border, and soft glow. */
 .sidebar {
+  /* Hidden off-canvas by default; left translation hides it off screen. */
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 70%;
   max-width: 260px;
-  /* Gradient background from near-black to a subtle teal tint */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 245, 212, 0.15) 100%);
-  border-right: 1px solid var(--teal);
-  box-shadow: 0 0 12px var(--teal-glow);
+  /* Gradient background from deep black to dark teal without transparency
+     so content behind the sidebar isn't visible */
+  background: linear-gradient(135deg, #001010 0%, #003e3e 100%);
+  /* When the sidebar is closed, hide the right border and remove any
+     box-shadow to prevent a teal line showing on the left side of the app.
+     The border and glow will be added back when `.open` class is applied. */
+  border-right: none;
+  box-shadow: none;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 20;
@@ -331,6 +402,10 @@ body {
 /* When open, slide the sidebar into view */
 .sidebar.open {
   transform: translateX(0);
+  /* Only show the teal border when the sidebar is open */
+  border-right: 1px solid var(--teal);
+  /* Add the glow back when the sidebar is open */
+  box-shadow: 0 0 12px var(--teal-glow);
 }
 
 /* Content inside the sidebar */
