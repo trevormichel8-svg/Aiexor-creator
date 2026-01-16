@@ -34,8 +34,8 @@
   /* Define a rainbow glow as multiple layered shadows. This creates a
      holographic effect around UI elements. Individual components can
      use this value in their box-shadow declarations. */
-  --rainbow-glow: 0 0 4px #00ffff, 0 0 8px #8a2be2, 0 0 12px #00ff00,
-                  0 0 16px #ffd700, 0 0 20px #ff00ff;
+  --rainbow-glow: 0 0 4px #00ffff, 0 0 4px #8a2be2, 0 0 4px #00ff00,
+                  0 0 4px #ffd700, 0 0 4px #ff00ff;
 
   /* Alias old variable names to the new accent palette. The existing
      styles throughout the stylesheet reference `--teal` and
