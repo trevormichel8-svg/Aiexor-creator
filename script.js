@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Disney", "Pixar", "Dreamy", "Whimsical", "Glitch", "Abstract Expressionism", "Op Art", "Macro Photography",
     "Microcosm", "Surreal Collage", "Vintage Collage", "Neon Portrait", "Neon Landscape", "Neon Abstract", "Space Art",
     "Galaxy", "Cosmic", "Astral", "Monochrome", "Sepia", "Black & White", "Polaroid", "Impressionist Landscape",
-    "Graffiti Portrait", "Retro Futurism"
-  ];
+    "Graffiti Portrait", "Retro Futurism", "Double Exposure", "Indigenous", "Coloring Book", "Stencil", "Comic Book", 
+    "Highly Detailed"
+  ]
   // Ensure at least 100 styles by adding numbered styles if necessary
   while (styles.length < 100) {
     styles.push(`Style ${styles.length + 1}`);
