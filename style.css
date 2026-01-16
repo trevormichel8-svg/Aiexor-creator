@@ -637,21 +637,22 @@ body {
   /* Remove the pill-shaped box around preset prompts. Use no
      background, border or shadow so prompts appear as plain text
      buttons. A small padding keeps them easily tappable. */
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
+  background-color: var(--surface-color);
   color: var(--accent-color);
+  border: 1px solid transparent;
+  border-image: var(--gradient-colors) 1;
   border-radius: var(--radius-pill);
-  padding: 0.2rem 0.4rem;
+  padding: 0.4rem 0.8rem;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: color 0.2s;
-}
-.preset-btn:hover {
-  /* On hover, subtly brighten the text colour but do not add a box. */
-  color: var(--text-color);
+  box-shadow: var(--rainbow-glow);
+  transition: transform 0.1s, box-shadow 0.3s;
 }
 
+.preset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px var(--rainbow-glow);
+}
 /* Sidebar styles for the hamburger menu
    The sidebar is hidden off‑canvas by default and slides in when the
    `.open` class is applied. It appears on the left side of the mobile
