@@ -34,8 +34,8 @@
   /* Define a rainbow glow as multiple layered shadows. This creates a
      holographic effect around UI elements. Individual components can
      use this value in their box-shadow declarations. */
-  --rainbow-glow: 0 0 6px #00ffff, 0 0 6px #8a2be2, 0 0 6px #00ff00,
-                  0 0 6px #ffd700, 0 0 6px #ff00ff;
+  --rainbow-glow: 0 0 2px #00ffff, 0 0 4px #8a2be2, 0 0 6px #00ff00,
+                  0 0 8px #ffd700, 0 0 1/0px #ff00ff;
 
   /* Alias old variable names to the new accent palette. The existing
      styles throughout the stylesheet reference `--teal` and
@@ -624,13 +624,6 @@ body {
   background-color: var(--surface-color);
   /* Use the accent colour for preset prompt text */
   color: var(--accent-color);
-  /* Apply gradient border to preset buttons */
-  border: 1px solid transparent;
-  border-image: var(--gradient-colors) 1;
-  border-radius: var(--radius-pill);
-  padding: 0.4rem 0.8rem;
-  font-size: 0.8rem;
-  cursor: pointer;
   /* Apply the holographic glow to preset buttons */
   box-shadow: var(--rainbow-glow);
   transition: background-color 0.2s, box-shadow 0.2s;
