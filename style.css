@@ -13,16 +13,7 @@
   --text-color: #ffffff;
   --accent-color: #ffd700;
   --accent-glow: rgba(255, 215, 0, 0.6);
-  --gradient-colors: linear-gradient(
-    45deg,
-    #00ffff,
-    #00ffcc,
-    #8a2be2,
-    #ff00ff,
-    #00ff00,
-    #ffd700,
-    #00ffff
-  );
+  --gradient-colors: linear-gradient(45deg, #00ffff, #00ffcc, #8a2be2, #ff00ff, #00ff00, #ffd700, #00ffff);
   --radius-pill: 24px;
   --radius-round: 50%;
   --padding: 1rem;
@@ -39,14 +30,12 @@
   --glow-animation: rainbowGlow 12s linear infinite;
 }
 
-/* ✅ ANIMATED HOLOGRAPHIC SHIFT */
 @keyframes rainbowGlow {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
 }
 
-/* ✅ UNIVERSAL IRIDESCENT GLOW APPLICATION
-   Applies glow to EVERYTHING you interact with or that behaves like a pill/card */
+/* Apply animated iridescent glow to all relevant UI components */
 .preset-btn,
 .icon-button,
 .feature-button,
@@ -58,14 +47,13 @@
 .image-container,
 .sidebar,
 .image-remix-btn,
-.image-download-btn,
-.style-menu,
-.style-item,
-.top-left,
-.mobile-frame {
+.image-download-btn {
   box-shadow: var(--iridescent-glow);
   animation: var(--glow-animation);
 }
+
+/* Add your full existing CSS file content below this point */
+/* Make sure to remove duplicate declarations for variables and glow if they exist */
 
 /* ✅ Base */
 body {
