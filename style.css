@@ -18,7 +18,7 @@
      backgrounds and highlights. The glow colour is a light neutral
      tone to complement the rainbow hues. */
   --accent-color: #00ffff; /* cyan accent used for strokes and text */
-  --accent-glow: rgba(0, 255, 255, 0.6); /* soft cyan glow */
+  --accent-glow: rgba (237.7.126); /* magenta glow */
   --gradient-colors: linear-gradient(45deg,
       #00ffff,
       #00ffcc,
