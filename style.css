@@ -18,7 +18,7 @@
      backgrounds and highlights. The glow colour is a light neutral
      tone to complement the rainbow hues. */
   --accent-color: #00ffff; /* cyan accent used for strokes and text */
-  --accent-glow: rgba (237.7.126); /* magenta glow */
+  --accent-glow: #ed077e; /* magenta glow */
   --gradient-colors: linear-gradient(45deg,
       #00ffff,
       #00ffcc,
@@ -36,7 +36,7 @@
      any property still using `var(--teal)` or `var(--teal-glow)` will
      receive the updated rainbow colours. */
   --teal: var(--accent-color);
-  --teal-glow: var(--accent-glow);
+  --megenta-glow: var(--accent-glow);
   --radius-pill: 24px;
   --radius-round: 50%;
   --padding: 1rem;
@@ -195,7 +195,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
-  box-shadow: 0 0 6px var(--accent-glow);
+  box-shadow: 0 0 8px var(--accent-glow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -253,7 +253,7 @@ body {
   background-color: var(--surface-color);
   color: var(--text-color);
   border: 1px solid var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.3s;
 }
@@ -263,7 +263,7 @@ body {
 }
 .feature-button:not([disabled]):hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megent-glow);
 }
 .feature-button svg {
   width: 28px;
@@ -286,7 +286,7 @@ body {
   /* Remove the teal divider line and rely on subtle shadow for separation */
   border-top: none;
   /* Subtle glow above the prompt bar to separate it from content */
-  box-shadow: 0 -2px 8px var(--teal-glow);
+  box-shadow: 0 -2px 8px var(--megenta-glow);
   /* Remove rounded corners to avoid the appearance of a single big pill */
   border-radius: 0;
   /* Ensure the prompt bar stays visible at the bottom of the viewport when
@@ -303,7 +303,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   cursor: pointer;
   margin-right: 0.5rem;
   transition: background-color 0.2s;
@@ -319,7 +319,7 @@ body {
   border-radius: var(--radius-pill);
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   margin-right: 0.5rem;
   outline: none;
 
@@ -349,7 +349,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -524,8 +524,8 @@ body {
      Apply a consistent box shadow around the entire card. */
   padding: 0;
   margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 12px var(--teal-glow);
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--megenta-glow);
   position: relative;
   overflow: visible;
 }
@@ -553,7 +553,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -589,7 +589,7 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-color);
-  text-shadow: 0 0 8px var(--teal-glow);
+  text-shadow: 0 0 8px var(--megenta-glow);
 }
 
 .preset-prompts {
@@ -608,12 +608,12 @@ body {
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 8px var(--megenta-glow);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 .preset-btn:hover {
   background-color: var(--bg-color);
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--megenta-glow);
 }
 
 /* Sidebar styles for the hamburger menu
@@ -651,7 +651,7 @@ body {
   /* Only show the teal border when the sidebar is open */
   border-right: 1px solid var(--teal);
   /* Add the glow back when the sidebar is open */
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--megenta-glow);
 }
 
 /* Content inside the sidebar */
@@ -659,7 +659,7 @@ body {
   margin-top: 0;
   font-size: 1.1rem;
   color: var(--teal);
-  text-shadow: 0 0 6px var(--teal-glow);
+  text-shadow: 0 0 8px var(--megenta-glow);
 }
 .sidebar-content p {
   font-size: 0.85rem;
@@ -680,7 +680,7 @@ body {
   background-color: var(--surface-color);
   border: 1px solid var(--teal);
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 10px var(--teal-glow);
+  box-shadow: 0 0 10px var(--megenta-glow);
   padding: 0.5rem;
   overflow-y: auto;
   display: none;
@@ -718,7 +718,7 @@ body {
   cursor: pointer;
   padding: 0;
   line-height: 1;
-  text-shadow: 0 0 6px var(--teal-glow);
+  text-shadow: 0 0 8px var(--megenta-glow);
 }
 .close-sidebar-btn:hover {
   color: var(--text-color);
