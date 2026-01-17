@@ -34,8 +34,8 @@
   /* Define a rainbow glow as multiple layered shadows. This creates a
      holographic effect around UI elements. Individual components can
      use this value in their box-shadow declarations. */
-  --rainbow-glow: 0 0 4px #00ffff, 0 0 8px #8a2be2, 0 0 12px #00ff00,
-                  0 0 16px #ffd700, 0 0 20px #ff00ff;
+  --rainbow-glow: 0 0 2px #00ffff, 0 0 4px #8a2be2, 0 0 8px #00ff00,
+                  0 0 12px #ffd700, 0 0 14px #ff00ff;
 
   /* Alias old variable names to the new accent palette. The existing
      styles throughout the stylesheet reference `--teal` and
@@ -330,7 +330,7 @@ body {
   flex-grow: 1;
   background-color: var(--bg-color);
   /* Use a multi‑colour gradient border around the prompt input */
-  border: 1px solid transparent;
+  border: none;
   border-image: var(--gradient-colors) 1;
   color: var(--text-color);
   border-radius: var(--radius-pill);
@@ -625,7 +625,7 @@ body {
   /* Use the accent colour for preset prompt text */
   color: var(--accent-color);
   /* Apply gradient border to preset buttons */
-  border: 1px solid transparent;
+  border: none;
   border-image: var(--gradient-colors) 1;
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
