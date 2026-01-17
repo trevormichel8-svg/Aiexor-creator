@@ -19,8 +19,8 @@
      tone to complement the rainbow hues. */
   /* Choose a gold accent for icons and text. This complements the
      rainbow gradient without defaulting to teal. */
-  --accent-color: #ffd700; /* gold accent used for strokes and text */
-  --accent-glow: rgba(255, 215, 0, 0.6); /* soft gold glow */
+  --accent-color: #00f3f7; /* teal accent used for strokes and text */
+  --accent-glow: rgba (237, 7, 126); /* megenta*/
   --gradient-colors: linear-gradient(45deg,
       #00ffff,
       #00ffcc,
@@ -34,8 +34,8 @@
   /* Define a rainbow glow as multiple layered shadows. This creates a
      holographic effect around UI elements. Individual components can
      use this value in their box-shadow declarations. */
-  --rainbow-glow: 0 0 2px #00ffff, 0 0 4px #8a2be2, 0 0 8px #00ff00,
-                  0 0 12px #ffd700, 0 0 14px #ff00ff;
+  --rainbow-glow: 0 0 2px #f50f2a, 0 0 4px #960579, 0 0 8px #c055fa,
+                  0 0 12px #0ccef0, 0 0 14px #00ff26;
 
   /* Alias old variable names to the new accent palette. The existing
      styles throughout the stylesheet reference `--teal` and
@@ -184,7 +184,7 @@ body {
 .app-label {
   /* Increase the size of the brand label and add a teal shadow for emphasis */
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: var(--accent-color);
   margin-left: 0.4rem;
   /* Add a subtle glow around the text using teal */
   text-shadow: 0 0 8px var(--accent-glow);
@@ -526,7 +526,7 @@ body {
      wrapper instead. */
   border: none;
   /* The card container applies the shadow; remove from the image itself */
-  box-shadow: none;
+  box-shadow: (--rainbow-glow);
 }
 /* Loading and error messages inside the output maintain the neon colour */
 .output .loading {
@@ -545,7 +545,7 @@ body {
   padding: 0;
   margin: 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--rainbow-glow);
   position: relative;
   overflow: visible;
 }
@@ -573,7 +573,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 6px var(--rainbow-glow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -608,8 +608,8 @@ body {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
-  text-shadow: 0 0 8px var(--teal-glow);
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--rainbow-glow);
 }
 
 .preset-prompts {
@@ -655,7 +655,7 @@ body {
   max-width: 260px;
   /* Gradient background from deep black to dark teal without transparency
      so content behind the sidebar isn't visible */
-  background: linear-gradient(135deg, #001010 0%, #003e3e 100%);
+  background: radial-gradient(135deg, #001010 0%, #003e3e 100%);
   /* When the sidebar is closed, hide the right border and remove any
      box-shadow to prevent a teal line showing on the left side of the app.
      The border and glow will be added back when `.open` class is applied. */
@@ -725,7 +725,7 @@ body {
 .style-item {
   padding: 0.4rem 0.8rem;
   border-radius: var(--radius-pill);
-  color: var(--text-color);
+  color: var(--accent-color);
   cursor: pointer;
   transition: background-color 0.2s;
 }
