@@ -608,12 +608,12 @@ body {
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--megenta-glow);
+  box-shadow: 0 0 8px var(--gradient-colors);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 .preset-btn:hover {
   background-color: var(--bg-color);
-  box-shadow: 0 0 12px var(--megenta-glow);
+  box-shadow: 0 0 12px var(--gradient-colors);
 }
 
 /* Sidebar styles for the hamburger menu
