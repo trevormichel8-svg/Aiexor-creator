@@ -154,7 +154,7 @@ body {
 .app-label {
   /* Increase the size of the brand label and add a teal shadow for emphasis */
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: var(--teal);
   margin-left: 0.4rem;
   /* Add a subtle glow around the text using teal */
   text-shadow: 0 0 8px var(--white-shadow);
@@ -230,7 +230,7 @@ body {
   padding: 1rem;
   border-radius: var(--radius-pill);
   background-color: var(--surface-color);
-  color: var(--text-color);
+  color: var(--teal);
   border: 1px solid var(--teal);
   box-shadow: 0 0 6px var(--white-shadow);
   cursor: pointer;
@@ -294,7 +294,7 @@ body {
   flex-grow: 1;
   background-color: var(--bg-color);
   border: 1px solid var(--teal);
-  color: var(--text-color);
+  color: var(--teal);
   border-radius: var(--radius-pill);
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
@@ -567,7 +567,7 @@ body {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--teal);
   text-shadow: 0 0 8px var(--white-shadow);
 }
 
@@ -642,7 +642,7 @@ body {
 }
 .sidebar-content p {
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--teal);
   line-height: 1.4;
 }
 
@@ -677,7 +677,7 @@ body {
 .style-item {
   padding: 0.4rem 0.8rem;
   border-radius: var(--radius-pill);
-  color: var(--text-color);
+  color: var(--teal);
   cursor: pointer;
   transition: background-color 0.2s;
 }
