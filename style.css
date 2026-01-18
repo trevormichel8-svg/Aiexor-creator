@@ -1,9 +1,9 @@
 /*
   Global styles for the AI image generator app.
   The goal of this stylesheet is to mirror the layout of the ChatGPT mobile UI
-  shown in the provided screenshot, with teal accents and a neon glow on
+  shown in the provided screenshot, with white accents and a neon shadow on
   actionable elements like buttons, pills and the prompt bar. The dark theme
-  preserves high contrast against the glowing teal.
+  preserves high contrast against the neon green shadow.
 */
 
 /* CSS variables for colours and spacing */
@@ -11,11 +11,11 @@
   --bg-color: #000; /* dark background */
   --surface-color: #0a0a0a; /* slightly lighter for cards */
   --text-color: #ffffff; /* white text */
-  /* Replace teal with candy apple neon red throughout the app. The new
-     accent colour provides a vibrant red hue reminiscent of neon lights.
-     This colour is used for icons, borders and glows. */
-  --teal: #ff073a; /* candy apple neon red */
-  --teal-glow: rgba(255, 7, 58, 0.7);
+  --text-shadow: #00ff00; /* neon green text shadow */
+  /* Replace candy apple neon red with white throughout the app. The new
+     accent colour is used for icons, borders and glows. */
+  --white: #ffffff; /* white */
+  --green-shadow: #00ff00; /* neon green */
   --radius-pill: 24px;
   --radius-round: 50%;
   --padding: 1rem;
@@ -133,7 +133,7 @@ body {
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
   position: relative;
-  box-shadow: 0 0 8px var(--teal-glow);
+  box-shadow: 0 0 8px var(--green-shadow);
 }
 
 .hamburger {
@@ -157,7 +157,7 @@ body {
   color: var(--text-color);
   margin-left: 0.4rem;
   /* Add a subtle glow around the text using teal */
-  text-shadow: 0 0 8px var(--teal-glow);
+  text-shadow: 0 0 8px var(--green-shadow);
 }
 
 .top-right {
@@ -173,8 +173,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  color: var(--white);
+  box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -231,8 +231,8 @@ body {
   border-radius: var(--radius-pill);
   background-color: var(--surface-color);
   color: var(--text-color);
-  border: 1px solid var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  border: 1px solid var(--white);
+  box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.3s;
 }
@@ -242,12 +242,12 @@ body {
 }
 .feature-button:not([disabled]):hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--green-shadow);
 }
 .feature-button svg {
   width: 28px;
   height: 28px;
-  color: var(--teal);
+  color: var(--white);
 }
 .feature-button span {
   font-size: 0.8rem;
@@ -264,8 +264,8 @@ body {
   background-color: var(--surface-color);
   /* Remove the teal divider line and rely on subtle shadow for separation */
   border-top: none;
-  /* Subtle glow above the prompt bar to separate it from content */
-  box-shadow: 0 -2px 8px var(--teal-glow);
+  /* Subtle shadow above the prompt bar to separate it from content */
+  box-shadow: 0 -2px 8px var(--green-shadow);
   /* Remove rounded corners to avoid the appearance of a single big pill */
   border-radius: 0;
   /* Ensure the prompt bar stays visible at the bottom of the viewport when
@@ -281,8 +281,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  color: var(--white);
+  box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   margin-right: 0.5rem;
   transition: background-color 0.2s;
@@ -293,12 +293,12 @@ body {
 .prompt-input {
   flex-grow: 1;
   background-color: var(--bg-color);
-  border: 1px solid var(--teal);
+  border: 1px solid var(--white);
   color: var(--text-color);
   border-radius: var(--radius-pill);
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 6px var(--green-shadow);
   margin-right: 0.5rem;
   outline: none;
 
@@ -327,8 +327,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  color: var(--white);
+  box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -489,7 +489,7 @@ body {
 }
 /* Loading and error messages inside the output maintain the neon colour */
 .output .loading {
-  color: var(--teal);
+  color: var(--white);
   font-size: 0.9rem;
   text-align: center;
   margin: 0.5rem 0;
@@ -504,7 +504,7 @@ body {
   padding: 0;
   margin: 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--green-shadow);
   position: relative;
   overflow: visible;
 }
@@ -532,7 +532,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -568,31 +568,31 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-color);
-  text-shadow: 0 0 8px var(--teal-glow);
+  text-shadow: 0 0 8px var(--green-shadow);
 }
 
 .preset-prompts {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.7rem;
   justify-content: center;
 }
 
 .preset-btn {
   background-color: var(--surface-color);
-  color: var(--teal);
-  border: 1px solid var(--teal);
+  color: var(--white);
+  border: 1px solid var(--white);
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 6px var(--teal-glow);
+  box-shadow: 0 0 6px var(--green-shadow);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 .preset-btn:hover {
   background-color: var(--bg-color);
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--green-shadow);
 }
 
 /* Sidebar styles for the hamburger menu
@@ -610,7 +610,7 @@ body {
   max-width: 260px;
   /* Gradient background from deep black to dark teal without transparency
      so content behind the sidebar isn't visible */
-  background: linear-gradient(135deg, #001010 0%, #003e3e 100%);
+  background: linear-gradient(135deg, #001010 50%, #00ff00 50%);
   /* When the sidebar is closed, hide the right border and remove any
      box-shadow to prevent a teal line showing on the left side of the app.
      The border and glow will be added back when `.open` class is applied. */
@@ -628,9 +628,9 @@ body {
 .sidebar.open {
   transform: translateX(0);
   /* Only show the teal border when the sidebar is open */
-  border-right: 1px solid var(--teal);
+  border-right: 1px solid var(--white);
   /* Add the glow back when the sidebar is open */
-  box-shadow: 0 0 12px var(--teal-glow);
+  box-shadow: 0 0 12px var(--green-shadow);
 }
 
 /* Content inside the sidebar */
@@ -638,7 +638,7 @@ body {
   margin-top: 0;
   font-size: 1.1rem;
   color: var(--teal);
-  text-shadow: 0 0 6px var(--teal-glow);
+  text-shadow: 0 0 6px var(--green-shadow);
 }
 .sidebar-content p {
   font-size: 0.85rem;
@@ -657,9 +657,9 @@ body {
   bottom: 4.5rem; /* roughly above the prompt bar */
   max-height: 40%;
   background-color: var(--surface-color);
-  border: 1px solid var(--teal);
+  border: 1px solid var(--white);
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 10px var(--teal-glow);
+  box-shadow: 0 0 10px var(--green-shadow);
   padding: 0.5rem;
   overflow-y: auto;
   display: none;
@@ -692,12 +692,12 @@ body {
   right: 0.75rem;
   background: transparent;
   border: none;
-  color: var(--teal);
+  color: var(--white);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0;
   line-height: 1;
-  text-shadow: 0 0 6px var(--teal-glow);
+  text-shadow: 0 0 6px var(--green-shadow);
 }
 .close-sidebar-btn:hover {
   color: var(--text-color);
