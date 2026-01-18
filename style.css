@@ -14,7 +14,7 @@
   --text-shadow: #00ff00; /* neon green text shadow */
   /* Replace candy apple neon red with white throughout the app. The new
      accent colour is used for icons, borders and glows. */
-  --white: #ffffff; /* white */
+  --neon-green: #00ff00; /* green */
   --green-shadow: #00ff00; /* neon green */
   --radius-pill: 24px;
   --radius-round: 50%;
@@ -147,7 +147,7 @@ body {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--teal);
+  background-color: var(--green);
   border-radius: 1px;
 }
 
@@ -173,7 +173,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--green);
   box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
@@ -231,7 +231,7 @@ body {
   border-radius: var(--radius-pill);
   background-color: var(--surface-color);
   color: var(--text-color);
-  border: 1px solid var(--white);
+  border: 1px solid var(--green);
   box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.3s;
@@ -247,7 +247,7 @@ body {
 .feature-button svg {
   width: 28px;
   height: 28px;
-  color: var(--white);
+  color: var(--green);
 }
 .feature-button span {
   font-size: 0.8rem;
@@ -281,7 +281,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--green);
   box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   margin-right: 0.5rem;
@@ -293,7 +293,7 @@ body {
 .prompt-input {
   flex-grow: 1;
   background-color: var(--bg-color);
-  border: 1px solid var(--white);
+  border: 1px solid var(--green);
   color: var(--text-color);
   border-radius: var(--radius-pill);
   padding: 0.5rem 1rem;
@@ -327,7 +327,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--green);
   box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
@@ -489,7 +489,7 @@ body {
 }
 /* Loading and error messages inside the output maintain the neon colour */
 .output .loading {
-  color: var(--white);
+  color: var(--green);
   font-size: 0.9rem;
   text-align: center;
   margin: 0.5rem 0;
@@ -531,7 +531,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
+  color: var(--green);
   box-shadow: 0 0 6px var(--green-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
@@ -581,8 +581,8 @@ body {
 
 .preset-btn {
   background-color: var(--surface-color);
-  color: var(--white);
-  border: 1px solid var(--white);
+  color: var(--green);
+  border: 1px solid var(--green);
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
@@ -628,7 +628,7 @@ body {
 .sidebar.open {
   transform: translateX(0);
   /* Only show the teal border when the sidebar is open */
-  border-right: 1px solid var(--white);
+  border-right: 1px solid var(--green);
   /* Add the glow back when the sidebar is open */
   box-shadow: 0 0 12px var(--green-shadow);
 }
@@ -657,7 +657,7 @@ body {
   bottom: 4.5rem; /* roughly above the prompt bar */
   max-height: 40%;
   background-color: var(--surface-color);
-  border: 1px solid var(--white);
+  border: 1px solid var(--green);
   border-radius: var(--radius-pill);
   box-shadow: 0 0 10px var(--green-shadow);
   padding: 0.5rem;
@@ -692,7 +692,7 @@ body {
   right: 0.75rem;
   background: transparent;
   border: none;
-  color: var(--white);
+  color: var(--green);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0;
