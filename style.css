@@ -15,7 +15,14 @@
   /* Replace neon green with teal throughout the app. The new
      accent colour is used for icons, borders and glows. */
   --teal: #00ffee ; /* teal */
-  --white-shadow: #ffffff; /* white shadow */
+  --white-shadow: #ff0080,
+        #ff8c00,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #8a2be2,
+        #ff0080 /* rainbow shadow */
   --radius-pill: 24px;
   --radius-round: 50%;
   --padding: 1rem;
@@ -133,7 +140,7 @@ body {
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
   position: relative;
-  box-shadow: 0 0 8px var(--white-shadow);
+  box-shadow: 0 0 8px var(--rainbow-shadow);
 }
 
 .hamburger {
@@ -157,7 +164,7 @@ body {
   color: var(--teal);
   margin-left: 0.4rem;
   /* Add a subtle glow around the text using teal */
-  text-shadow: 0 0 8px var(--white-shadow);
+  text-shadow: 0 0 8px var(--rainbow-shadow);
 }
 
 .top-right {
@@ -174,7 +181,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -232,7 +239,7 @@ body {
   background-color: var(--surface-color);
   color: var(--teal);
   border: 1px solid var(--teal);
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.3s;
 }
@@ -242,7 +249,7 @@ body {
 }
 .feature-button:not([disabled]):hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 12px var(--white-shadow);
+  box-shadow: 0 0 12px var(--rainbow-shadow);
 }
 .feature-button svg {
   width: 28px;
@@ -265,7 +272,7 @@ body {
   /* Remove the teal divider line and rely on subtle shadow for separation */
   border-top: none;
   /* Subtle shadow above the prompt bar to separate it from content */
-  box-shadow: 0 -2px 8px var(--white-shadow);
+  box-shadow: 0 -2px 8px var(--rainbow-shadow);
   /* Remove rounded corners to avoid the appearance of a single big pill */
   border-radius: 0;
   /* Ensure the prompt bar stays visible at the bottom of the viewport when
@@ -282,7 +289,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   cursor: pointer;
   margin-right: 0.5rem;
   transition: background-color 0.2s;
@@ -298,7 +305,7 @@ body {
   border-radius: var(--radius-pill);
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   margin-right: 0.5rem;
   outline: none;
 
@@ -328,7 +335,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -504,7 +511,7 @@ body {
   padding: 0;
   margin: 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 12px var(--white-shadow);
+  box-shadow: 0 0 12px var(--rainbow-shadow);
   position: relative;
   overflow: visible;
 }
@@ -532,7 +539,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teal);
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -568,7 +575,7 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--teal);
-  text-shadow: 0 0 8px var(--white-shadow);
+  text-shadow: 0 0 8px var(--rainbow-shadow);
 }
 
 .preset-prompts {
@@ -587,12 +594,12 @@ body {
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 6px var(--white-shadow);
+  box-shadow: 0 0 6px var(--rainbow-shadow);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 .preset-btn:hover {
   background-color: var(--bg-color);
-  box-shadow: 0 0 12px var(--white-shadow);
+  box-shadow: 0 0 12px var(--rainbow-shadow);
 }
 
 /* Sidebar styles for the hamburger menu
@@ -630,7 +637,7 @@ body {
   /* Only show the teal border when the sidebar is open */
   border-right: 1px solid var(--teal);
   /* Add the glow back when the sidebar is open */
-  box-shadow: 0 0 12px var(--white-shadow);
+  box-shadow: 0 0 12px var(--rainbow-shadow);
 }
 
 /* Content inside the sidebar */
@@ -638,7 +645,7 @@ body {
   margin-top: 0;
   font-size: 1.1rem;
   color: var(--teal);
-  text-shadow: 0 0 6px var(--white-shadow);
+  text-shadow: 0 0 6px var(--rainbow-shadow);
 }
 .sidebar-content p {
   font-size: 0.85rem;
@@ -659,7 +666,7 @@ body {
   background-color: var(--surface-color);
   border: 1px solid var(--teal);
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 10px var(--white-shadow);
+  box-shadow: 0 0 10px var(--rainbow-shadow);
   padding: 0.5rem;
   overflow-y: auto;
   display: none;
@@ -697,7 +704,7 @@ body {
   cursor: pointer;
   padding: 0;
   line-height: 1;
-  text-shadow: 0 0 6px var(--white-shadow);
+  text-shadow: 0 0 6px var(--rainbow-shadow);
 }
 .close-sidebar-btn:hover {
   color: var(--text-color);
