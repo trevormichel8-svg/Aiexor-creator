@@ -582,7 +582,7 @@ body {
 .preset-btn {
   background-color: var(--surface-color);
   color: var(--teal);
-  border: none
+  border: 1px var(--none);
   border-radius: var(--radius-pill);
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
