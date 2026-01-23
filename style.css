@@ -14,7 +14,7 @@
   --text-shadow: #00ffee ; /* white text shadow */
   /* Replace neon green with teal throughout the app. The new
      accent colour is used for icons, borders and glows. */
-  --teal: #00ffee ; /* teal */
+  --teal: #ffffff ; /* teal */
   --rainbow-shadow: #00ffee ; /* white shadow */
   --radius-pill: 24px;
   --radius-round: 50%;
